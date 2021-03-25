@@ -21,10 +21,10 @@
 ## Starting the Django Server :
 
 ### Setting up firebase credentials :
-1) Create a project [here]('https://console.firebase.google.com/u/0/)
-2) Download the credentials.json from  [firebase project settings]('https://console.firebase.google.com'). Paste the path to credentials 
-[here]('https://github.com/coldkillerr/ASST_Django/blob/baa2bb5b0f069a424a07a277542d26ce5acb4aa0/ASST/config.py#L9')
-3) Get the firebase SDK snippet from  [firebase project settings]('https://console.firebase.google.com'). Paste it [here]('https://github.com/coldkillerr/ASST_Django/blob/baa2bb5b0f069a424a07a277542d26ce5acb4aa0/ASST/config.py#L13') and [here]('https://github.com/coldkillerr/ASST_Django/blob/baa2bb5b0f069a424a07a277542d26ce5acb4aa0/templates/firebase_config.js#L5')
+1) Create a project [here](https://console.firebase.google.com/u/0/)
+2) Download the credentials.json from  [firebase project settings](https://console.firebase.google.com). Paste the path to credentials 
+[here](https://github.com/coldkillerr/ASST_Django/blob/baa2bb5b0f069a424a07a277542d26ce5acb4aa0/ASST/config.py#L9)
+3) Get the firebase SDK snippet from  [firebase project settings](https://console.firebase.google.com). Paste it [here](https://github.com/coldkillerr/ASST_Django/blob/baa2bb5b0f069a424a07a277542d26ce5acb4aa0/ASST/config.py#L13) and [here](https://github.com/coldkillerr/ASST_Django/blob/baa2bb5b0f069a424a07a277542d26ce5acb4aa0/templates/firebase_config.js#L5)
 
 ### Setting up the virtualenv
 1) Create a virtual environment with
