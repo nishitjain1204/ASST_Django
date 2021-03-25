@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content%}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+<head>
+
+
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-analytics.js"></script>
+
+
+</head>
+
+<body>
+    <section class="mb-5 text-center">
+        <h2 style="color: #212529;">Enter email to receive password reset link</h2><br>
+        <form action="#">
+
+            <div class="md-form md-outline">
+                <div class="d-flex justify-content-center">
+
+                    <input placeholder="Enter email address" style="width: 50%;" type="email" id="email"
+                        class="form-control">
+
+                </div>
+
+            </div>
+            <br>
+            <button type="submit" id="btn-resetPassword" class="btn btn-primary"><span></span>Submit</button>
+
+        </form>
+        <script src="{% static 'js/forgot.js' %}"></script>
+
+    </section>
+
+    {% endblock%}
+
+</body>

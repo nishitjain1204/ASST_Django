@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content%}
+
+
+<div class="form-group ml-3 form-control-sm banner">
+    <legend style="color: #212529;" class="border-bottom mb-4">Select a date to download report.</legend>
+
+
+
+
+<div class="content center ">
+    <form action="{% url 'get_excel_sheet' %}" method="get">
+<input class="form-control" id="datepicker" width="300"  name="date" type="date"></input>
+<button class="btn btn-primary" type="submit">Download</button>
+</form>
+</div>
+
+</div>
+{% endblock content %}

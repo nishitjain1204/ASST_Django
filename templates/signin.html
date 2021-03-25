@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+
+{% block content%}<br>
+<div class="content form-group form-control-sm d-flex justify-content-center">
+
+    <form method='post'>
+        {% csrf_token %}
+        <legend class="border-bottom text-center mb-3">LOG IN</legend>
+        {{ form|crispy }}
+        <div class="text-center">
+            <button type="submit" class=" btn btn-primary"><span></span>Submit</button>
+
+        </div><br>
+        <div class="border-top pt-3">
+            <small style="color: white;" class="ml-2"> <a style="color: black;" class="ml-3"
+                    href="{% url 'secretarysignup'   %}">Signup</a>
+            </small>
+
+            <small style="color: white;" class="ml-2"> <a style="color: black;" class="ml-3"
+                    href="{% url 'forgotpass' %}">Forgot
+                    Password?</a>
+            </small>
+        </div>
+    </form>
+
+</div>
+
+
+
+    
+
+
+
+
+{% endblock content%}

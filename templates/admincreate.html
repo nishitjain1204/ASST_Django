@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+
+
+{% if messg %}
+<script>alert('{{messg}}')</script>
+{% endif %}
+
+{% if img_error%}
+{{ img_error }}
+{% endif %}
+
+
+
+{% block content %}
+  
+        <div class="d-flex content form-group ml-3 form-control-sm justify-content-center">
+            
+            <form method="post">
+                <legend style="color: #212529;" class="border-bottom mb-4">ENTER DETAILS FOR ADMIN</legend>
+                {% csrf_token %}
+                {{ form|crispy }}
+                <div class='text-center'>
+                <button type="submit" onclick="location.href='{% url 'postsignin' %}'" class="btn btn-primary" value="Submit">Submit</button></div>
+
+
+            </form>
+            <script src="{% static 'js/app.js' %}"></script>
+        </div>
+
+   
+    {% endblock content %}

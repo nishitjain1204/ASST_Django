@@ -1,0 +1,13 @@
+
+Django==3.1.7
+django-crispy-forms==1.11.1
+django-heroku==0.3.1
+django-phonenumber-field==5.0.0
+gunicorn==20.0.4
+
+opencv-python==4.5.1.48
+Pyrebase==3.0.27
+
+
+pandas==1.0.5
+openpyxl==3.0.3

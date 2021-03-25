@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content%}
+
+
+
+<div class="form-group ml-3 form-control-sm banner">
+    <legend style="color: #212529;" class="border-bottom mb-4">PANEL</legend>
+
+
+    {% if users %}
+    {% for user in users %}
+    <div class="card-columns d-flex justify-content-center">
+        <div class="card" style="width: 18rem;">
+            <img src="{{ user.image.0 }}" class="card-img-top" alt="...">
+
+            <div class="card-body">
+                <h5 class="card-title"><b>Name: </b> {{ user.fname }}</h5>
+                <p class="card-text"><b>Contact 1: </b>{{ user.contact1 }}<br>
+                    <b>Contact 2: </b>{{ user.contact2 }}<br>
+                    <b>Aadhar number: </b>{{ user.adhar }}<br>
+                    <b>Room number: </b>{{ user.roomnum }}<br>
+
+                </p>
+                <a href="#" class="btn btn-primary"
+                    onclick="location.href='{% url 'secretaryvalidation' key=user.key decision=0 %}'">Reject</a>
+
+                <a href="#" class="btn btn-primary"
+                    onclick="location.href='{% url 'secretaryvalidation' key=user.key decision=1 %}'">Accept</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <h1 class="justify-content-center">No new member to be verified yet.</h1>
+    {% endif %}
+
+
+</div>
+{% endblock %}

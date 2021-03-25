@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content%}
+
+
+
+<div class="form-group ml-3 form-control-sm banner">
+    <legend style="color: #212529;" class="border-bottom mb-4">PANEL</legend>
+
+
+    {% if users %}
+    {% for user in users %}
+    <div class="card-columns d-flex justify-content-center">
+        <div class="card" style="width: 18rem;">
+            <img src="{{ user.image }}" class="card-img-top" alt="...">
+
+            <div class="card-body">
+                <h5 class="card-title"><b>Reason: </b> {{ user.reason }}</h5>
+                    <b>Contact 2: </b>{{ user.contact2 }}<br>
+                    
+
+                </p>
+                <a href="#" class="btn btn-primary"
+                    onclick="location.href='{% url 'watchmanvalidate' key=user.key decision=0 %}'">Visitor Left</a>
+
+                <a href="#" class="btn btn-primary"
+                    onclick="location.href='{% url 'watchmanvalidate' key=user.key decision=1 %}'">Accepted</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <h1 class="justify-content-center">No new member to be verified yet.</h1>
+    {% endif %}
+
+
+</div>
+
+
+<div class="modal hide fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="myModalLabel">Modal title</h5>
+          <button type="button" class="close button-close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="Modal" onclick="oncloseclick()">Check</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+<script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-messaging.js"></script>
+<script src="/firebase_config.js"></script>
+<script>
+  
+   
+
+    function IntitalizeFireBaseMessaging() {
+        messaging
+            .requestPermission()
+            .then(function () {
+                console.log("Notification Permission");
+                return messaging.getToken();
+            })
+            .then(function (token) {
+                console.log("Token : "+token);
+                sendToServer(token);
+              
+            })
+            .catch(function (reason) {
+                console.log(reason);
+            });
+    }
+
+
+
+    messaging.onTokenRefresh(function () {
+        messaging.getToken()
+            .then(function (newtoken) {
+                console.log("New Token : "+ newtoken);
+                sendToServer(newtoken);
+            })
+            .catch(function (reason) {
+                console.log(reason);
+            })
+    })
+
+    IntitalizeFireBaseMessaging();
+
+  messaging.onMessage(notification => {
+      location.reload(true);
+	console.log('Notification received!');
+  var mymodal = $('#myModal');
+    mymodal.find('.modal-body').text(notification.notification.body.reason);
+    mymodal.find('.modal-header').text('You have a new visitor');
+    mymodal.modal('show');
+   
+    
+ 
+  
+});
+
+
+
+
+    function sendToServer(token){
+         $.ajax({
+                url:'{% url 'fcmtoken_save_watchman' %}',
+                type:'POST',
+                data:{token:token},
+            })
+            .done(function(response){
+                if(response=="True"){
+                    console.log("Token Save")
+                }
+                else{
+                    console.log(response)
+                }
+            });
+    }
+               
+</script>
+
+
+<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"
+    integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js"
+    integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG"
+    crossorigin="anonymous"></script>
+
+{% endblock content%}

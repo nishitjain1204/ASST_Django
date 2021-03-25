@@ -1,0 +1,132 @@
+body {
+    background-image: linear-gradient(to right, #02aab0 , #00cdac);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    
+    background-size: cover;
+  
+      
+      margin-top: 5rem;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      color: #030000;
+    }
+    
+    ul {
+      margin: 0;
+    }
+    
+    .bg-steel {
+      background-color: #212529;
+    }
+    .ok {
+      position: absolute;
+      right: 25%;
+      top: 25%
+  }
+    .center {
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+    .a{
+      margin: 0;
+      position: absolute;
+      top: 25%;
+      left: 50%;
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+        
+    }
+  
+    .card-columns {
+      display:inline-block;
+    }
+    .mr-2{
+      color: white;
+      font-size: 30px;
+    }
+    
+    .mb-4{
+      color: #f69314;
+    }
+    .btn-outline-info{
+      color: whitesmoke;
+    }
+    .btn{
+      color: rgb(255,255,255);
+    }
+    
+    .site-header .navbar-nav .nav-link {
+      color: #cbd5db;
+    }
+    
+    .site-header .navbar-nav .nav-link:hover {
+      color: #ffffff;
+    }
+    
+    .site-header .navbar-nav .nav-link.active {
+      font-weight: 500;
+    }
+    
+    .content-section {
+      background: #212529;
+      padding: 10px 20px;
+      border: 1px solid #dddddd;
+      border-radius: 3  px;
+      margin-bottom: 20px;
+    }
+    
+    .article-title {
+      color: #f69314;
+      font-size: 25px;
+    }
+    
+    a.article-title:hover {
+      color: rgb(87, 83, 83);
+      text-decoration: none;
+    }
+    
+    .article-content {
+      white-space: pre-line;
+    }
+    
+    .article-img {
+      height: 70px;
+      width: 70px;
+      margin-right: 10px;
+      margin-top: 5px;
+    }
+    
+    .article-metadata {
+      padding-bottom: 1px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #e3e3e3
+    }
+    
+    .article-metadata a:hover {
+      color: #333;
+      text-decoration: none;
+    }
+    
+    .article-svg {
+      width: 25px;
+      height: 25px;
+      vertical-align: middle;
+    }
+    
+    .account-img {
+      height: 125px;
+      width: 125px;
+      margin-right: 20px;
+      margin-bottom: 16px;
+    }
+    
+    .account-heading {
+      font-size: 2.5rem;
+    }

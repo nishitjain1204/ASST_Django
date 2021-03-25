@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content%}
+{% load crispy_forms_tags %}
+
+<!-- <head>
+    <style>
+        textarea {
+  width: 325px;
+  height: 150px;
+}
+    </style>
+</head> -->
+<div class="form-group ml-3 form-control-sm banner">
+    <legend style="color: #212529;" class="border-bottom mb-4">PENDING VISITORS</legend>
+
+
+    {% if users %}
+    {% for user in users %}
+    <div class="card-rows d-flex justify-content-center">
+        <div class="card" style="width: 18rem;">
+            <img src="{{ user.image }}" class="card-img-top" alt="...">
+
+            <div class="card-body">
+                
+                <p>
+                    <b>Reason: </b>{{ user.reason }}<br>
+                    <b>Room number: </b>{{ user.roomnum }}<br>
+                    </p>
+                    <form action="{% url 'visitorvalidation' key=user.key decision=0 %}" method="get">
+                    
+                        <textarea id='reason' type="text" name="reason" class="form-control"></textarea>
+                        <button class="btn btn-primary" type="submit">Reject</button>
+                        <a href="#" class="btn btn-primary" type="submit"
+                        onclick="location.href='{% url 'visitorvalidation' key=user.key decision=1 %}'">Accept</a>
+                    </form>
+    
+                        
+                   
+                    
+
+                
+                
+                      
+                    
+               
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <h1 class="justify-content-center">You have no waiting visitors for now.</h1>
+    {% endif %}
+
+
+</div>
+
+<script>
+
+ 
+</script>
+{% endblock %}

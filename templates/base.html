@@ -1,0 +1,102 @@
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+    <meta charset="utf-8">
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Autom</title>
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}" />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel='stylesheet' type='text/css' media='screen' href="{% static 'css/index.css' %}">
+
+    <script src="//code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
+
+    <style>
+    .modal-backdrop {
+        /* bug fix - no overlay */    
+        display: none;    
+    }
+</style>
+
+</head>
+
+<body>
+
+
+    <header class="site-header">
+        <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+            <div class="container">
+                <a class="navbar-brand mr-4" href="{% url 'welcome' %}">AUTOM</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle"
+                    aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarToggle">
+                    <div class="navbar-nav mr-auto">
+                        
+                    </div>
+
+                    <div class="navbar-nav">
+                        {% if request.session.session_id %}
+                        {% if request.session.position == 'secretary' %}
+                        <a class="nav-item nav-link" href="{% url 'report' %}">Day Report</a>
+                        {% endif %}
+                        <a class="nav-item nav-link" href="{% url 'log' %}">Logout</a>
+                        {% else %}
+                        <a class="nav-item nav-link" href="{% url 'signin' %}">SignIn</a>
+                        <a class="nav-item nav-link" href="{% url 'secretarysignup' %}">Register</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main role="main" class="container">
+
+        <div class="col-md-8">
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+            </div>
+            {% endfor %}
+            {% endif %}
+
+        </div>
+
+
+    </main>
+    {% block content %} {% endblock content %}
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+       
+    
+
+</body>
+
+</html>

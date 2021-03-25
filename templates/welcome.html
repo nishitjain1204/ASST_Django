@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content%}
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Landing page</title>
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.png' %}" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel='stylesheet' type='text/css' media='screen' href="{% static 'css/welcome.css' %}">
+    <style>
+        h1 {
+            text-align: center;
+            text-transform: uppercase;
+
+        }
+    </style>
+</head>
+
+
+
+
+<div class="content">
+    <br><br><br><br><br><br><br><br><br>
+    <h1>ASST15</h1>
+    <p>AUTOMATED SOCIETY SECURITY TASK</p>
+    <div>
+        <button type="button" class="btn btn-primary" onclick="location.href='{% url 'signin'   %}'"><span></span>Sign
+            In</button><br><br>
+        <button type="button" class="btn btn-primary"
+            onclick="location.href='{% url 'secretarysignup'   %}'"><span></span>Enroll a
+            Society</button>
+
+    </div>
+
+</div>
+
+
+
+{% endblock content%}

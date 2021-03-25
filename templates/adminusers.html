@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content%}
+
+
+
+<div class="form-group ml-3 form-control-sm banner">
+    <legend style="color: #212529;" class="border-bottom mb-4">USERS</legend>
+
+    {% if users %}
+    {% for user in users %}
+    <div class="card-columns d-flex justify-content-center">
+        <div class="card" style="width: 18rem;">
+            <img src="{{ user.val.image.0 }}" class="card-img-top" alt="...">
+
+            <div class="card-body">
+                <h5 class="card-title"><b>Name: </b> {{ user.val.fname }}</h5>
+                <p class="card-text"><b>Contact 1: </b>{{ user.val.contact1 }}<br>
+                    <b>Contact 2: </b>{{ user.val.contact2 }}<br>
+                    <b>Aadhar number: </b>{{ user.val.adhar }}<br>
+                    <b>Room number: </b>{{roomnum}}
+                </p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    {% endif %}
+
+
+</div>
+{% endblock %}

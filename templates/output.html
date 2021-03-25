@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content%}
+
+<body>
+
+
+    <div class="content">
+        <div class="center">
+
+            <div class="card"
+                style="height: 15rem; width: 40rem;color: #fff;;background-color: transparent;border: 3px solid #212529;">
+                <div class="card-body">
+                    
+                        <h5 style="color: #212529;" class="card-title d-flex justify-content-center">Registration done!
+                            Thank you</h5>
+                            <br><br>
+                            <div class=" d-flex justify-content-center">
+                        <a href="#" class="btn btn-primary " onclick="location.href='{% url 'postsignin' %}'">Register
+                            another person</a>&nbsp;
+
+
+                   </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
