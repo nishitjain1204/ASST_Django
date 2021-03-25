@@ -4,7 +4,21 @@
  
 <p align='center'><img src="https://github.com/coldkillerr/ASST_Django/blob/master/ASST.png" alt="ASST" height="300" border="0"></p>
 
-## Starting the Django Server
+## How to use the app :
+
+1) Get your society registered with the application . Once the society is registered you have the permission to assign one account to every flat in the society as the admin of that house.
+
+2) Now the admin has the powers to register his house members. These members will be verified by the secretary before registration.
+
+3) Once the registrations are done , every admin will be able to keep a watch on the people who have come to visit him and he has the power to permit them inside or reject them.
+
+4) Now the admin will have to also register a watchman who will recieve live notifications whom to permit and whom to reject.
+
+
+
+
+
+## Starting the Django Server :
 
 ### Setting up firebase credentials :
 1) Create a project [here]('https://console.firebase.google.com/u/0/)
@@ -29,7 +43,7 @@ python3 manage.py migrate
 ```
 python3 manage.py runserver
 ```
-
+## 
 
 
  
