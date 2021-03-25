@@ -14,7 +14,7 @@
 
 4) Now the admin will have to also register a watchman who will recieve live notifications whom to permit and whom to reject.
 
-## Link to the IOT source code and setup : [here](https://github.com/coldkillerr/ASST_IOT/)
+Link to the IOT source code and setup : [here](https://github.com/coldkillerr/ASST_IOT/)
 
 
 
