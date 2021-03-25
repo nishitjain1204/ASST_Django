@@ -43,7 +43,9 @@ python3 manage.py migrate
 ```
 python3 manage.py runserver
 ```
-## 
+### This application is ready to be hosted on [heroku](https://dashboard.heroku.com/)
+
+
 
 
  
